@@ -1,5 +1,5 @@
 //selectors
-
+export const getTables = ({ tables }) => tables;
 // actions
 //const createActionName = (actionName) => `app/tables/${actionName}`;
 
