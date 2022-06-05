@@ -13,13 +13,7 @@ const store = createStore(
   reducer,
   initialState,
   composeWithDevTools(),
-
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__
-      ? window.__REDUX_DEVTOOLS_EXTENSION__()
-      : (f) => f
-  )
+  compose(applyMiddleware(thunk))
 );
 
 export default store;
