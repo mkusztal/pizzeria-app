@@ -10,7 +10,7 @@ const subreducers = {
 
 const reducer = combineReducers(subreducers);
 
-const middleware = thunk;
+const middleware = { thunk };
 // const middlewareEnhancer = applyMiddleware(...middlewares);
 // const composeDevTool = composeWithDevTools();
 
@@ -20,7 +20,7 @@ const middleware = thunk;
 const store = createStore(
   reducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeWithDevTools(applyMiddleware(...{ middleware }))
 );
 
 export default store;
