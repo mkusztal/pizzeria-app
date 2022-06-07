@@ -3,7 +3,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import initialState from './initialState';
 import tablesReducer from './tablesRedux';
-import { compose } from 'redux';
 
 const subreducers = {
   tables: tablesReducer,
@@ -11,13 +10,17 @@ const subreducers = {
 
 const reducer = combineReducers(subreducers);
 
-const middlewares = [thunk];
-const middlewareEnhancer = applyMiddleware(...middlewares);
-const composeDevTool = composeWithDevTools();
+const middleware = thunk;
+// const middlewareEnhancer = applyMiddleware(...middlewares);
+// const composeDevTool = composeWithDevTools();
 
-const enhancers = [middlewareEnhancer, composeDevTool];
-const composedEnhancers = compose(...enhancers);
+// const enhancers = [middlewareEnhancer, composeDevTool];
+// const composedEnhancers = compose(...enhancers);
 
-const store = createStore(reducer, initialState, composedEnhancers);
+const store = createStore(
+  reducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
 export default store;
