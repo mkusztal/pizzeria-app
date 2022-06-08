@@ -10,7 +10,7 @@ const Tables = ({ number, status, id }) => {
         </Col>
         <Col className="col-4">
           <p className="mb-0 pl-3">
-            <b>Status:</b>
+            <b>Status: </b>
             {status}
           </p>
         </Col>

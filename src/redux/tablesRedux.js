@@ -1,4 +1,4 @@
-import shortid from 'shortid';
+import { API_URL } from '../config';
 
 //selectors
 export const getTables = ({ tables }) => tables;
@@ -7,15 +7,23 @@ export const getTableById = ({ tables }, tableId) =>
 
 // actions
 const createActionName = (actionName) => `app/tables/${actionName}`;
-const UPDATE_POST = createActionName('UPDATE_POST');
+const UPDATE_TABLES = createActionName('UPDATE_TABLES');
 
 // action creators
-export const updatePost = (payload) => ({ type: UPDATE_POST, payload });
+export const updateTables = (payload) => ({ type: UPDATE_TABLES, payload });
+
+export const fetchTables = () => {
+  return (dispatch) => {
+    fetch(API_URL + '/tables')
+      .then((res) => res.json())
+      .then((tables) => dispatch(updateTables(tables)));
+  };
+};
 
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
-    case UPDATE_POST:
-      return [...statePart, { ...action.payload, id: shortid() }];
+    case UPDATE_TABLES:
+      return [...action.payload];
     default:
       return statePart;
   }
