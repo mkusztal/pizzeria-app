@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 //components
 import Header from './components/views/Header';
 import Footer from './components/views/Footer';
-import TableForm from './components/features/TableForm';
+import EditTable from './components/features/EditTable';
 import Home from './components/pages/Home';
 import NotFound from './components/pages/NotFound';
 
@@ -26,7 +26,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tables/:tableId" element={<TableForm />} />
+          <Route path="/tables/:tableId" element={<EditTable />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

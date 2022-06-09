@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getTableById } from '../../redux/tablesRedux';
+import { useNavigate, useParams, Navigate } from 'react-router-dom';
+import { getTableById, updateTableRequest } from '../../redux/tablesRedux';
 import TableForm from './TableForm';
 
 const EditTable = () => {
@@ -10,5 +10,25 @@ const EditTable = () => {
 
   let navigate = useNavigate();
 
-  return <TableForm id={tableData.id} status={tableData.status} />;
+  const handleSubmit = (table) => {
+    dispatch(updateTableRequest(...table));
+    navigate('/');
+  };
+
+  if (!tableData) return <Navigate to="/" />;
+
+  return (
+    <TableForm
+      action={handleSubmit}
+      actionText="Update"
+      id={tableData.id}
+      status={tableData.status}
+      people={tableData.people}
+      maxPeople={tableData.maxPeople}
+      bill={tableData.bill}
+      tableNumber={tableData.tableNumber}
+    />
+  );
 };
+
+export default EditTable;
