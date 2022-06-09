@@ -26,7 +26,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/table/:tableId" element={<TableForm />} />
+          <Route path="/tables/:tableId" element={<TableForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
