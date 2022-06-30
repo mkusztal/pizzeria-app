@@ -5,8 +5,8 @@ import TableForm from './TableForm';
 
 const EditTable = () => {
   const dispatch = useDispatch();
-  const { tabledId } = useParams;
-  const tableData = useSelector((state) => getTableById(state, tabledId));
+  const { tableId } = useParams();
+  const tableData = useSelector((state) => getTableById(state, tableId));
 
   let navigate = useNavigate();
 

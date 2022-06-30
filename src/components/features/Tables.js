@@ -1,12 +1,12 @@
 import { Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Tables = ({ number, status, id }) => {
+const Tables = ({ status, id }) => {
   return (
     <Row>
-      <Row className="align-items-end mb-3">
+      <Row className="align-items-end mb-3" key={id}>
         <Col className="col-2 d-flex align-items-end justify-content-between">
-          <h2 className="mb-0">Table {number}</h2>
+          <h2 className="mb-0">Table {id}</h2>
         </Col>
         <Col className="col-4">
           <p className="mb-0 pl-3">
@@ -22,7 +22,6 @@ const Tables = ({ number, status, id }) => {
           </Link>
         </Col>
       </Row>
-      <hr />
     </Row>
   );
 };
