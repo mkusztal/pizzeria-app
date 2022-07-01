@@ -1,4 +1,4 @@
-import { Col, Row, Button, Nav, NavLink } from 'react-bootstrap';
+import { Col, Row, ToggleButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Tables = ({ status, id }) => {
@@ -17,9 +17,7 @@ const Tables = ({ status, id }) => {
         <Col className="col-6 d-flex justify-content-end">
           <Link to={'/tables/' + id}>
             <Button variant="primary" size="sm">
-              <Nav.Link className="text-white" as={NavLink} to="tables/api/">
-                Show more
-              </Nav.Link>
+              Show more
             </Button>
           </Link>
         </Col>
