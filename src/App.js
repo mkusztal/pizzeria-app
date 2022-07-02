@@ -29,8 +29,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tables" element={<TablesPage />} />
-          <Route path="/tables/api/" element={<TableForm />} />
-          <Route path="/tables/:tableId" element={<EditTable />} />
+          <Route path="/api/tables" element={<TableForm />} />
+          <Route path="/api/tables/:tableId" element={<EditTable />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

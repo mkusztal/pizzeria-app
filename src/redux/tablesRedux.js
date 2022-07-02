@@ -16,7 +16,7 @@ export const editTable = (payload) => ({ type: EDIT_TABLE, payload });
 
 export const fetchTables = () => {
   return (dispatch) => {
-    fetch(API_URL + '/tables/')
+    fetch(API_URL + '/api/tables/')
       .then((res) => res.json())
       .then((tables) => dispatch(updateTables(tables)));
   };
@@ -32,7 +32,7 @@ export const updateTableRequest = (updatedTable) => {
       body: JSON.stringify(updatedTable),
     };
 
-    fetch(API_URL + '/tables/' + updatedTable.id, options).then(() =>
+    fetch(API_URL + '/api/tables/' + updatedTable.id, options).then(() =>
       dispatch(editTable(updatedTable))
     );
   };

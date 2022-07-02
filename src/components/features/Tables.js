@@ -1,4 +1,4 @@
-import { Col, Row, ToggleButtonGroup } from 'react-bootstrap';
+import { Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Tables = ({ status, id }) => {
@@ -15,7 +15,7 @@ const Tables = ({ status, id }) => {
           </p>
         </Col>
         <Col className="col-6 d-flex justify-content-end">
-          <Link to={'/tables/' + id}>
+          <Link to={'/api/tables/' + id}>
             <Button variant="primary" size="sm">
               Show more
             </Button>
