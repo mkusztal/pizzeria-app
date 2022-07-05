@@ -15,7 +15,7 @@ const Tables = ({ status, id }) => {
           </p>
         </Col>
         <Col className="col-6 d-flex justify-content-end">
-          <Link to={'/api/tables/' + id}>
+          <Link to={'/tables/' + id}>
             <Button variant="primary" size="sm">
               Show more
             </Button>

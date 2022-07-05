@@ -39,7 +39,7 @@ const TableForm = ({ action, actionText, ...props }) => {
         <Form.Group className="mb-3 w-50">
           <Form.Label>Status: </Form.Label>
           <Col>
-            <Form.Control
+            <Form.Select
               {...register('category', { required: true })}
               type="select"
               placeholder="Select category"
@@ -54,7 +54,7 @@ const TableForm = ({ action, actionText, ...props }) => {
                   {status}
                 </option>
               ))}
-            </Form.Control>
+            </Form.Select>
           </Col>
         </Form.Group>
         <Form.Group className="mb-3 w-50">

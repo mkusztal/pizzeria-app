@@ -60,7 +60,7 @@ exports.editTable = editTable;
 
 var fetchTables = function fetchTables() {
   return function (dispatch) {
-    fetch(_config.API_URL + '/api/tables/').then(function (res) {
+    fetch(_config.API_URL + '/tables').then(function (res) {
       return res.json();
     }).then(function (tables) {
       return dispatch(updateTables(tables));
@@ -79,7 +79,7 @@ var updateTableRequest = function updateTableRequest(updatedTable) {
       },
       body: JSON.stringify(updatedTable)
     };
-    fetch(_config.API_URL + '/api/tables/' + updatedTable.id, options).then(function () {
+    fetch(_config.API_URL + '/tables' + updatedTable.id, options).then(function () {
       return dispatch(editTable(updatedTable));
     });
   };
