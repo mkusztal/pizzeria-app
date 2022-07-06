@@ -58,7 +58,7 @@ const TableForm = ({ action, actionText, ...props }) => {
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Row className="mb-3">
-            <Col md={2}>People:</Col>
+            <Col md={2}>People: </Col>
             <Form.Control
               {...register('people', { required: true })}
               className="pl-3"
