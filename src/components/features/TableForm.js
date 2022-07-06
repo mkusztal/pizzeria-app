@@ -6,7 +6,6 @@ import { getStatuses } from '../../redux/statusReducer';
 
 const TableForm = ({ action, actionText, ...props }) => {
   const id = props.id;
-  //const dispatch = useDispatch();
   const statuses = useSelector(getStatuses);
 
   const [status, setStatus] = useState(props.status || '');
@@ -40,7 +39,7 @@ const TableForm = ({ action, actionText, ...props }) => {
           <Form.Label>Status: </Form.Label>
           <Col>
             <Form.Select
-              {...register('category', { required: true })}
+              {...register('status', { required: true })}
               type="select"
               placeholder="Select category"
               value={status ? status : '1'}
@@ -58,30 +57,35 @@ const TableForm = ({ action, actionText, ...props }) => {
           </Col>
         </Form.Group>
         <Form.Group className="mb-3 w-50">
-          <Form.Label>People: </Form.Label>
-          <Col>
+          <Row className="mb-3">
+            <Col md={2}>People:</Col>
             <Form.Control
               {...register('people', { required: true })}
+              className="pl-3"
+              style={{ width: '50px', marginLeft: '10px', marginRight: '10px' }}
               type="number"
               value={status === 'Busy' ? people : 0}
               onChange={(e) => setPeople(e.target.value)}
             />
-            {errors.title && (
-              <small className="d-block form-text text-danger mt-2">
-                The number of people is required
-              </small>
-            )}
-          </Col>
-        </Form.Group>
-        <Form.Group className="mb-3 w-50">
-          <Col>
+            /
             <Form.Control
               {...register('maxPeople', { required: true })}
+              style={{ width: '50px', marginLeft: '10px' }}
               type="number"
-              value={maxPeople}
               onChange={(e) => setMaxPeople(e.target.value)}
+              value={maxPeople}
             />
-          </Col>
+            {errors.people && (
+              <small className="d-block form-text text-danger mt-2">
+                This field is required
+              </small>
+            )}
+            {errors.maxPeople && (
+              <small className="d-block form-text text-danger mt-2">
+                This field is required
+              </small>
+            )}
+          </Row>
         </Form.Group>
         <Form.Group className="mb-3 w-50">
           <Form.Label>Bill:</Form.Label>

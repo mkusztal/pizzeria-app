@@ -14,7 +14,6 @@ import { fetchTables } from './redux/tablesRedux';
 import { fetchStatus } from './redux/tablesStatusRedux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-//import TableForm from './components/features/TableForm';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,7 +28,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tables" element={<TablesPage />} />
-          {/* <Route path="/tables/:tableId" element={<TableForm />} /> */}
           <Route path="/tables/:tableId" element={<EditTable />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

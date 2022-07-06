@@ -11,13 +11,8 @@ const Home = () => {
     <div>
       <Row>
         <Col>
-          <h1 className="pb-5">All tables</h1>
+          <h1 className="pb-5">All Tables</h1>
         </Col>
-        {/* <Col className="d-flex flex-row-reverse p-2">
-          <Link to="/tables/:tableId">
-            <Button variant="outline-info">Add table</Button>{' '}
-          </Link>
-        </Col> */}
       </Row>
       <Row>
         {tables.map((table, index) => (

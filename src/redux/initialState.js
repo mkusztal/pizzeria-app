@@ -29,7 +29,7 @@ const initialState = {
       bill: 0,
     },
   ],
-  status: [],
+  status: ['Busy', 'Free'],
 };
 
 export default initialState;
