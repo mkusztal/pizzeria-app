@@ -7,7 +7,7 @@ import updateTableRequest from '../../redux/tablesRedux';
 import { useNavigate } from 'react-router-dom';
 
 const TableForm = ({ action, actionText, ...props }) => {
-  //const id = props.id;
+  const id = props.id;
   const statuses = useSelector(getStatuses);
   const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ const TableForm = ({ action, actionText, ...props }) => {
   } = useForm();
 
   const handleSubmit = (table) => {
-    //action({ status, id, people, maxPeople, bill });
+    action({ status, id, people, maxPeople, bill });
     if (maxPeople) {
       dispatch(updateTableRequest(...table));
       navigate('/');
