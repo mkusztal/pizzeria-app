@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { getStatuses } from '../../redux/statusReducer';
-import updateTableRequest from '../../redux/tablesRedux';
+import { updateTableRequest } from '../../redux/tablesRedux';
 import { useNavigate } from 'react-router-dom';
 
 const TableForm = ({ action, actionText, ...props }) => {
@@ -26,7 +26,7 @@ const TableForm = ({ action, actionText, ...props }) => {
   const handleSubmit = (table) => {
     action({ status, id, people, maxPeople, bill });
     if (maxPeople) {
-      dispatch(updateTableRequest(table));
+      dispatch(updateTableRequest({ table }));
       navigate('/');
     }
   };
@@ -53,7 +53,7 @@ const TableForm = ({ action, actionText, ...props }) => {
               onChange={(e) => setStatus(e.target.value)}
             >
               <option disabled value="1">
-                Select category...
+                Select status...
               </option>
               {statuses.map((status, index) => (
                 <option key={index} value={status}>
