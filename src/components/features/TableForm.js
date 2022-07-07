@@ -1,21 +1,16 @@
 import { Col, Form, Row, Button } from 'react-bootstrap';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { getStatuses } from '../../redux/statusReducer';
-import { updateTableRequest } from '../../redux/tablesRedux';
-import { useNavigate } from 'react-router-dom';
 
 const TableForm = ({ action, actionText, ...props }) => {
-  const id = props.id;
   const statuses = useSelector(getStatuses);
-  const dispatch = useDispatch();
-
+  const id = props.id;
   const [status, setStatus] = useState(props.status || '');
   const [people, setPeople] = useState(props.people || '');
   const [maxPeople, setMaxPeople] = useState(props.maxPeople || '');
   const [bill, setBill] = useState(props.bill || '');
-  let navigate = useNavigate();
 
   const {
     register,
@@ -23,14 +18,11 @@ const TableForm = ({ action, actionText, ...props }) => {
     formState: { errors },
   } = useForm();
 
-  const handleSubmit = (table) => {
+  const handleSubmit = () => {
     action({ status, id, people, maxPeople, bill });
-    if (maxPeople) {
-      dispatch(updateTableRequest({ table }));
-      navigate('/');
-    }
   };
 
+  
   if (parseInt(maxPeople) > 10) setMaxPeople('10');
   if (parseInt(maxPeople) < 0) setMaxPeople('0');
   if (parseInt(people) > maxPeople) setPeople(maxPeople);

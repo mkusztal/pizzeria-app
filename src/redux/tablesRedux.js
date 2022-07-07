@@ -32,7 +32,7 @@ export const updateTableRequest = (updatedTable) => {
       body: JSON.stringify(updatedTable),
     };
 
-    fetch(API_URL + '/tables' + updatedTable.id, options).then(() =>
+    fetch(API_URL + '/tables/' + updatedTable.id, options).then(() =>
       dispatch(editTable(updatedTable))
     );
   };

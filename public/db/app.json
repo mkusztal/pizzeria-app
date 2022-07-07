@@ -33,5 +33,10 @@
       "tableNumber": "4"
     }
   ],
-  "status": ["Free", "Busy", "Cleaning", "Reserved"]
+  "status": [
+    "Free",
+    "Busy",
+    "Cleaning",
+    "Reserved"
+  ]
 }
