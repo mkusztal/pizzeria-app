@@ -26,7 +26,7 @@ const TableForm = ({ action, actionText, ...props }) => {
   const handleSubmit = (table) => {
     action({ status, id, people, maxPeople, bill });
     if (maxPeople) {
-      dispatch(updateTableRequest(...table));
+      dispatch(updateTableRequest(table));
       navigate('/');
     }
   };
