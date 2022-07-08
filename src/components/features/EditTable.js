@@ -11,7 +11,7 @@ const EditTable = () => {
   let navigate = useNavigate();
 
   const handleSubmit = (table) => {
-    dispatch(updateTableRequest({ table }));
+    dispatch(updateTableRequest(table));
     navigate('/');
   };
 
